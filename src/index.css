@@ -1,0 +1,95 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "system-ui", Roboto, sans-serif;
+  
+  --color-primary: #2563eb;
+  --color-primary-light: #dbeafe;
+  --color-bg-base: #f8fafc;
+  --color-text-main: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border-base: #e2e8f0;
+  --color-accent: #f59e0b;
+  --color-conflict-red: #ef4444;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-base text-text-main font-sans overflow-hidden h-screen w-screen flex flex-col;
+  }
+}
+
+/* Cloud Diagram Layout */
+.cloud-container {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 120px);
+  gap: 40px 60px;
+  position: relative;
+}
+
+/* Node Styling */
+.node-box {
+  @apply bg-white border-2 border-border-base rounded-lg p-4 h-[100px] flex flex-col justify-center text-center relative shadow-sm z-10 transition-all duration-300;
+}
+
+.node-box.active {
+  @apply border-primary ring-4 ring-primary-light shadow-md scale-105;
+}
+
+.node-label {
+  @apply absolute -top-2.5 left-2.5 bg-white px-1.5 text-[0.65rem] font-black text-primary uppercase tracking-tight;
+}
+
+.node-content {
+  @apply text-sm font-medium text-text-main leading-tight overflow-hidden text-ellipsis;
+}
+
+.node-content.placeholder {
+  @apply text-text-muted italic opacity-50;
+}
+
+/* Conflict Bolt/Line */
+.conflict-line {
+  @apply absolute right-[100px] top-[40px] w-px h-[160px] border-l-2 border-dashed border-conflict-red z-0;
+}
+
+.conflict-label {
+  @apply absolute right-[72px] top-[108px] bg-conflict-red text-white py-0.5 px-2 rounded text-[0.65rem] font-bold z-10;
+}
+
+/* Final Infographic Grid */
+.final-cloud-grid {
+  display: grid;
+  grid-template-columns: 180px 220px 220px;
+  grid-template-rows: 160px 120px 120px 160px;
+  gap: 60px 80px;
+  position: relative;
+  width: min-content;
+}
+
+.assumption-display-box {
+  @apply bg-primary/5 border border-primary/20 p-3 rounded-xl min-h-[60px] h-full flex items-center justify-center text-center overflow-y-auto;
+}
+
+.solution-display-box {
+  @apply bg-accent p-3 rounded-xl min-h-[60px] h-full flex items-center justify-center text-center shadow-lg shadow-accent/20 overflow-y-auto;
+}
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+  }
+}
+
