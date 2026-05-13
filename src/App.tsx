@@ -569,8 +569,8 @@ C 필요: "${data.needC}"
                     )}
                     {step === 'step1' && (
                       <div className="space-y-4">
-                        <InputField label="D의 주장" placeholder="예: 게임을 더 하고 싶다" value={data.wantD} onChange={(val) => updateData({ wantD: val })} />
-                        <InputField label="D'의 주장" placeholder="예: 지금 자야 한다" value={data.wantDPrime} onChange={(val) => updateData({ wantDPrime: val })} />
+                        <InputField label="D의 주장" placeholder="예: 게임을 더 한다." value={data.wantD} onChange={(val) => updateData({ wantD: val })} />
+                        <InputField label="D'의 주장" placeholder="예: 지금 잔다." value={data.wantDPrime} onChange={(val) => updateData({ wantDPrime: val })} />
                       </div>
                     )}
                     {step === 'step2' && (
