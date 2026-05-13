@@ -562,7 +562,7 @@ C 필요: "${data.needC}"
                     {step === 'step0' && (
                        <InputField 
                         label="누구와 누구 사이의 갈등인가요?"
-                        placeholder="예: 부모님과 나"
+                        placeholder="예: 나와 부모님"
                         value={data.parties}
                         onChange={(val) => updateData({ parties: val })}
                       />
